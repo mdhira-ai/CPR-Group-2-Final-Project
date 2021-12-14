@@ -45,5 +45,23 @@ void tokenizing()
     printf("*** End of Tokenizing Phrases Demo ***\n\n");
 
     /* Version 3 */
-    >> insert here
+    printf("*** Start of Tokenizing Sentences Demo ***\n");
+    char sentences[200];                                             // a string of characters is declared
+    char *sentence;                                                  // pointer variable declaration
+    int s_counter;                                                   // s_counter variable type integer is declared
+    printf("Type a few sentences separated by dot(q - to quit):\n"); // prompt the user to write a few sentences
+    gets(sentences);                                                 // accept the input
+    while (strcmp(sentences, "q") != 0)                              // while q is not typed, run:
+    {
+        sentence = strtok(sentences, "."); // get the tokens
+        s_counter = 1;                     // s_counter initialized to 1
+        while (sentence)
+        {
+            printf("sentence #%d is \'%s\'\n", s_counter++, sentence); // display the sentence
+            sentence = strtok(NULL, ".");                              // passing a null pointer
+        }
+        printf("Type a few sentences separated by dot(q - to quit):\n"); // display the sentence
+        gets(sentences);
+    }
+    printf("*** End of Tokenizing Sentences Demo ***\n\n"); // display the sentence
 }
